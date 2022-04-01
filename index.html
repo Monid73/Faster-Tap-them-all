@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>balls</title>
+</head>
+<body class="end back">
+
+
+	<div class="left-up">
+		<div class="right-up" style="left: 950px;"></div>
+		<div class="left-down" style="top: 500px;"></div>
+		<div class="right-down" style="left: 950px; top: 500px;"></div>
+	<h4>Очки: <span class="score"></span></h4>
+	</div>
+	
+
+	<div class="ball" style="top:110px; left:700px;"></div> <!--Лево-верхние-->
+	<div class="ball" style="top:220px; left:800px;"></div>
+	<div class="ball" style="top:350px; left:900px;"></div>
+
+	<div class="ball" style="top:110px; left:1200px;"></div> <!--Право-верхние-->
+	<div class="ball" style="top:220px; left:1300px;"></div>
+	<div class="ball" style="top:350px; left:1500px;"></div>
+
+	<div class="ball" style="top:600px; left:1200px;"></div> <!--Лево-нижние-->
+	<div class="ball" style="top:700px; left:1300px;"></div>
+	<div class="ball" style="top:800px; left:1600px;"></div>
+
+	<div class="ball" style="top:700px; left:400px;"></div> <!--Право-нижние-->
+	<div class="ball" style="top:800px; left:500px;"></div>
+	<div class="ball" style="top:800px; left:600px;"></div> 
+
+<script type="text/javascript">
+
+let ball = document.querySelectorAll(".ball");
+
+let left_first_circles = 500; 	//нужно писать left
+let top_second_circles = 110;	//нужно писать top
+let left_third_circles = 1300;	//нужно писать left
+let top_fourth_circles = 800;	//нужно писать top
+
+let score = 0;
+
+document.querySelector(".score").innerHTML = score;
+	
+	for (let i=0; i<12; i=i+1) {
+		ball[i].onclick = function() {
+		ball[i].style.display = "none";
+		score = score + 1
+		document.querySelector(".score").innerHTML = score;
+	}
+	}
+
+
+	function endgame(){
+    if(score < 12){
+		document.querySelector(".end").style.display = "none";
+		alert("Не успел");
+    }
+    if (score == 12) {
+    	alert("Победа");
+    }
+}
+
+function changeCircle(){
+    left_first_circles = left_first_circles + 90;
+    for(let i=0; i<3; i=i+1){
+        ball[i].style.left = left_first_circles + "px"
+        ball[i].style.opacity = 100
+        ball[i].style.backgroundColor = "darkorange";
+    }
+
+    top_second_circles = top_second_circles + 90;
+    for(let i=3; i<6; i=i+1){
+    	ball[i].style.top = top_second_circles + "px"
+    	ball[i].style.opacity = 100
+    	ball[i].style.backgroundColor = "orange";
+    }
+
+    left_third_circles = left_third_circles - 90;
+    for (let i=6; i<9; i=i+1) {
+    	ball[i].style.left = left_third_circles + "px"
+    	ball[i].style.opacity = 100
+    	ball[i].style.backgroundColor = "darkorange";
+    }
+
+    top_fourth_circles = top_fourth_circles - 90;
+    for (let i=9; i<12; i=i+1) {
+    	ball[i].style.top = top_fourth_circles + "px"
+    	ball[i].style.opacity = 100
+    	ball[i].style.backgroundColor = "orange";
+    }
+}
+
+function startGame(){
+        
+    setInterval(changeCircle, 1000);
+    setTimeout(endgame, 6000);
+}
+setTimeout(startGame, 500);
+
+</script>
+
+</body>
+</html>

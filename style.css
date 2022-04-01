@@ -1,0 +1,63 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+
+.ball {
+	height: 100px;
+	width: 100px;
+	background-color: red;
+	position: absolute;
+	border-radius: 50%;
+	transition: 0.6s;
+	opacity: 2%;
+}
+
+.back {
+	background-color: gray;
+}
+
+.tran {
+	background-color: transparent;
+}
+
+.fullback {
+	height: 1000px;
+	background-color: gray;
+}
+
+.scoreplace {
+	position: absolute;
+}
+
+.left-up {
+	height: 500px;
+	width: 950px;
+	position: absolute;
+	background-color: orange;
+	transition: 0.6s;
+}
+
+.right-up {
+	height: 500px;
+	width: 929px;
+	position: absolute;
+	background-color: darkorange;
+	transition: 0.6s;
+}
+
+.left-down {
+	height: 431px;
+	width: 950px;
+	position: absolute;
+	background-color: darkorange;
+	transition: 0.6s;
+}
+
+.right-down {
+	height: 431px;
+	width: 929px;
+	position: absolute;
+	background-color: orange;
+	transition: 0.6s;
+}
